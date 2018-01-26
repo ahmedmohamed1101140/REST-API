@@ -9,10 +9,11 @@ const mongoose = require("mongoose");
 //App Routes
 const productRoute = require('./api/routes/products');
 const orderRoute = require('./api/routes/orders');
-
+const userRoute = require('./api/routes/users');
 
 // set up the mongodb
-var url = process.env.DATABASEURL || "mongodb://localhost/shop_app";
+var url = "mongodb://localhost/shop_app";
+// var url ="mongodb://ahmed11011:ahmed3684723@node-rest-shop-shard-00-00-ykqwx.mongodb.net:27017,node-rest-shop-shard-00-01-ykqwx.mongodb.net:27017,node-rest-shop-shard-00-02-ykqwx.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin"
 mongoose.connect(url,{useMongoClient:true});
 //solving DeprecationWarning: Mongoose: mpromise
 mongoose.Promise = global.Promise;
@@ -39,7 +40,7 @@ app.use(function (req,res,next) {
 
 app.use("/products",productRoute);
 app.use("/orders",orderRoute);
-
+app.use("/user",userRoute);
 
 //normal errors handling
 app.use(function (req,res,next) {

@@ -1,0 +1,6 @@
+{
+  "env":{
+    "PORT": "3000",
+    "JWT_KEY": "secret_ahmed_3684723"
+  }
+}
